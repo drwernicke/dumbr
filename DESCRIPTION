@@ -1,0 +1,15 @@
+Package: dumbr
+Type: Package
+Title: Shuffles your data to anonymity.
+Version: 0.1.0
+Authors@R: 
+    person("Christian", "Reitan", email = "reitan.christian@gmail.com", role = c("cre", "aut"))
+Description: It does different things
+License: MIT
+Imports:
+    dplyr,
+    magrittr
+Suggests: random
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
