@@ -3,8 +3,9 @@
 #' Shuffles your data set and makes it anonymous
 #'
 #' NB! Note that the function uses the values in your data. If it contains ID variables such as
-#' social security numbers its values  will still appear in the output.
-#' If you use a n that is higher than the number of rows in your original data, duplicates may appear which may be relevant for ID variables.
+#' social security numbers its values will still appear in the output.
+#' If you use a n that is higher than the number of rows in your original data,
+#' duplicates may appear which may be relevant for ID variables.
 #'
 #' @param x a data set of class data.frame, tibble or matrix
 #' @param n the number of rows in the returned object
@@ -19,7 +20,7 @@
 ### dumbr function
 
 dumbr <- function(x, n = nrow(x), slow = TRUE){
-
+if("data.frame" %in% class(x) | "matrix" %in% class(x)){
   # require packages
   require(magrittr)
   require(dplyr)
@@ -45,3 +46,8 @@ dumbr <- function(x, n = nrow(x), slow = TRUE){
 
   return(out_data)
 }
+  else{
+    stop("x is not of class matrix or data.frame")
+  }
+}
+

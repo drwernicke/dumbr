@@ -21,8 +21,9 @@ Shuffles your data set and makes it anonymous
 }
 \details{
 NB! Note that the function uses the values in your data. If it contains ID variables such as
-social security numbers its values  will still appear in the output.
-If you use a n which is higher than the number of rows in your original data, duplicates may appear which may be relevant in ID variables.
+social security numbers its values will still appear in the output.
+If you use a `n` that is higher than the number of rows in your original data,
+duplicates may appear which may be relevant for ID variables.
 }
 \examples{
 dumbr(starwars, n = 10, slow = TRUE)
