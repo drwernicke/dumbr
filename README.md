@@ -11,6 +11,12 @@ Imagine one of the following:
 
 The point is that you can write and test your code with dummy data and just switch to real data when your are ready.
 
+### Installation
+run:
+```
+devtools::install_github("drwernicke/dumbr")
+```
+
 ### Notes
 * The function does **not** create new values, it uses those already in the dataset. This means that individual values can still contain sensitive information such as names, social security numbers etc.
 * If you create a dummy dataset which is larger than your original dataset, values may be duplicated. This may have to be considered for ID variables, dates and so on.
