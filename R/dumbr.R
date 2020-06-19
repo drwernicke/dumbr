@@ -19,11 +19,17 @@
 #' @export
 ### dumbr function
 
-dumbr <- function(x, n = nrow(x), slow = TRUE){
+dumbr <- function(x, n = nrow(x), slow = TRUE, sens_cols = NULL){
 if("data.frame" %in% class(x) | "matrix" %in% class(x)){
   # require packages
   require(magrittr)
   require(dplyr)
+
+  # drop sens cols
+  if(!is.null(sens_cols)){
+    x <- x %>%
+      select(-sens_cols)
+  }
 
   # Get random number to base shuffling on
   if(slow == TRUE) { # Really randomized shuffling
