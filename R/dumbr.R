@@ -1,8 +1,8 @@
 #' dumbr function
 #'
-#' Shuffles your data set and makes it anonymous
+#' Shuffles your data set and makes it anonymous. Values are shuffled infepencently by columns.
 #'
-#' NB! Note that the function uses the values in your data. If it contains ID variables such as
+#' ote that the function uses the values in your data. If it contains ID variables such as
 #' social security numbers its values will still appear in the output.
 #' If you use a n that is higher than the number of rows in your original data,
 #' duplicates may appear which may be relevant for ID variables.
@@ -10,11 +10,12 @@
 #' @param x a data set of class data.frame, tibble or matrix
 #' @param n the number of rows in the returned object
 #' @param slow randomization method. If TRUE, the function uses a randomizing function from the random package, which takes a little more computing time. If FALSE, the function uses R´s built in random number generator, which teoretically is less safe. Defaults to TRUE.
+#' @param sens_cols convenience function that drops columns containing sensitive values (e.g. personal identifiers, account numbers etc.). You can just as well pipe the output into select() for the same result. Input should be a character vector with relevant column names.
 #'
 #' @return An object of the same class as x.
 #'
 #' @examples
-#' dumbr(starwars, n = 10, slow = TRUE)
+#' dumbr(starwars, n = 10, slow = TRUE, sens_cols = c("name", "height"))
 #'
 #' @export
 ### dumbr function
@@ -26,7 +27,7 @@ if("data.frame" %in% class(x) | "matrix" %in% class(x)){
   require(dplyr)
 
   # drop sens cols
-  if(!is.null(sens_cols)){
+  if(is.vector(sens_cols)){
     x <- x %>%
       select(-sens_cols)
   }

@@ -1,7 +1,7 @@
 Package: dumbr
 Type: Package
 Title: Shuffles your data to anonymity.
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person("Christian", "Reitan", email = "reitan.christian@gmail.com", role = c("cre", "aut"))
 Description: It does different things
